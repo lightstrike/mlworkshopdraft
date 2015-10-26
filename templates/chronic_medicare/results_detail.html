@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ result }}</h1>
+    {{ result.plot_html|safe }}
+    {{ result.summary_html|safe }}
+    <p>R-Squared: {{ result.r_squared }}</p>
+    <a href="{% url 'chronic:query' %}">Run new query</a>
+    <a href="{% url 'chronic:results_list' %}">Return to list</a>
+    <a href="{% url 'chronic:results_detail' result.pk|add:1 %}">See next result</a>
+{% endblock %}
